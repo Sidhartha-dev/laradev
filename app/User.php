@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -36,4 +37,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function points()
+    {
+        return $this->hasMany('App\Point');
+    }
+
+    public function PointChecks()
+    {
+        return $this->hasMany('App\PointCheck');
+    }
+
+    public function earnings()
+    {
+        return $this->hasMany('App\Earning');
+    }
 }

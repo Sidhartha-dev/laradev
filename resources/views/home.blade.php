@@ -1,23 +1,25 @@
-@extends('layouts.app')
-@include('layouts.nav')
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+@extends('admin.homesetup')
+@section('homepager')
+<div class="back-body">
+    <div class="cards">
+         <h2>GIFT Cards</h2>
+         <div class="each-cards" style="text-align: center">
+            @if (count($pointusers)>0)
+             @foreach ($pointusers as $point)
+             <div class="each-card">
+                <a href="{{route('point.show', $point->id)}}" class="point-id">
+                    <div class="reward-card" data-id="{{$point->id}}" data-status="{{$point->point_status}}">
+                        <h3 class="text-card">{{$point->points}} RACS</h3>
+                    </div>
+                </a>
             </div>
-        </div>
+             @endforeach
+             @else
+                <strong>No Racs card available</strong>
+             @endif
+         </div>
     </div>
-</div>
+ </div>
+
 @endsection
+    

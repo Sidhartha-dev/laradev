@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
@@ -10,15 +11,14 @@ class LandingPageController extends Controller
 {
     public function index()
     {
-        $categories = Category::take(5)->get();
+        $brands = Brand::all();
+        // $categories = Category::take(5)->get();
+        $categoryProducts = Category::with(['products'=>function($query){
+            $query->take(4);
+        }])->take(3)->get();
+        // dd($categoryProducts);
         $products = Product::where('top_two_featured', true)->get();
-        return view('welcome', compact('categories', 'products'));
-    }
-
-    public function categoryProduct($name)
-    {
-        $category = Category::where('name', $name)->firstOrFail();
-        return view('category_product')->with('category', $category);
+        return view('welcome', compact('products', 'brands', 'categoryProducts'));
     }
 
 }

@@ -9,9 +9,6 @@
 
     <title>{{ config('app.name', 'Rewardy') }}</title>
 
-     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -20,15 +17,24 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body class="holo">
     <div id="app">
-    <div class="container">
-        <main class="py-4">
+    <div class="">
+        <main class="">
             @yield('content')
         </main>
     </div>
 </div>
 <script src="{{ asset("js/darkmode.js")}}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+
+{{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 </body>
 </html>

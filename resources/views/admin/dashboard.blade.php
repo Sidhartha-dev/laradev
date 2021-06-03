@@ -32,6 +32,19 @@
                 <h3 class="py-2 px-3 text-white"></b><a href="{{route('category.index')}}" class="product-page">Category Management</a></b></h3>
             </div>
         </div>
+        <div class="col-md-4">
+            <div class="dash-card">
+                <i class="pt-3 fa fa-id-card" aria-hidden="true"></i>
+                <h3 class="py-2 px-3 text-white"></b><a href="{{route('point.index')}}" class="product-page">Points Management</a></b></h3>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="dash-card">
+                <i class="pt-3 fa fa-life-ring" aria-hidden="true"></i>
+                <h3 class="py-2 px-3 text-white"></b><a href="{{route('brand.index')}}" class="product-page">Brand Management</a></b></h3>
+            </div>
+        </div>
+        
     </div>
 </div>
 @endsection
